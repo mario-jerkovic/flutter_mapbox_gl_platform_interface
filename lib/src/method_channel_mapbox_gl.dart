@@ -771,6 +771,7 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
       'layerId': layerId,
       'belowLayerId': belowLayerId,
       'sourceLayer': sourceLayer,
+      'filter': jsonEncode(filter),
       'properties': properties
           .map((key, value) => MapEntry<String, String>(key, jsonEncode(value)))
     });
@@ -785,6 +786,7 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
       'layerId': layerId,
       'belowLayerId': belowLayerId,
       'sourceLayer': sourceLayer,
+      'filter': jsonEncode(filter),
       'properties': properties
           .map((key, value) => MapEntry<String, String>(key, jsonEncode(value)))
     });
@@ -799,6 +801,7 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
       'layerId': layerId,
       'belowLayerId': belowLayerId,
       'sourceLayer': sourceLayer,
+      'filter': jsonEncode(filter),
       'properties': properties
           .map((key, value) => MapEntry<String, String>(key, jsonEncode(value)))
     });
@@ -813,6 +816,7 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
       'layerId': layerId,
       'belowLayerId': belowLayerId,
       'sourceLayer': sourceLayer,
+      'filter': jsonEncode(filter),
       'properties': properties
           .map((key, value) => MapEntry<String, String>(key, jsonEncode(value)))
     });
