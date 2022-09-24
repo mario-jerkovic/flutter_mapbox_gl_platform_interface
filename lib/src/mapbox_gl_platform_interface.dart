@@ -24,7 +24,7 @@ abstract class MapboxGlPlatform {
 
   final onFillTappedPlatform = ArgumentCallbacks<String>();
 
-  final onFeatureTappedPlatform = ArgumentCallbacks<dynamic>();
+  final onFeatureTappedPlatform = ArgumentCallbacks<Map<String, dynamic>>();
 
   final onCameraMoveStartedPlatform = ArgumentCallbacks<void>();
 
@@ -39,11 +39,11 @@ abstract class MapboxGlPlatform {
   final onMapLongClickPlatform = ArgumentCallbacks<Map<String, dynamic>>();
 
   final ArgumentCallbacks<void> onAttributionClickPlatform =
-      ArgumentCallbacks<void>();
+  ArgumentCallbacks<void>();
 
   final ArgumentCallbacks<MyLocationTrackingMode>
-      onCameraTrackingChangedPlatform =
-      ArgumentCallbacks<MyLocationTrackingMode>();
+  onCameraTrackingChangedPlatform =
+  ArgumentCallbacks<MyLocationTrackingMode>();
 
   final onCameraTrackingDismissedPlatform = ArgumentCallbacks<void>();
 
@@ -276,9 +276,9 @@ abstract class MapboxGlPlatform {
     throw UnimplementedError(
         'getMetersPerPixelAtLatitude() has not been implemented.');
   }
-  
-  Future<void> addGeoJsonSource(
-      String sourceId, Map<String, dynamic> geojson) async {
+
+  Future<void> addGeoJsonSource(String sourceId, Map<String, dynamic> geojson,
+      {String? promoteId}) async {
     throw UnimplementedError('addGeoJsonSource() has not been implemented.');
   }
 
@@ -293,29 +293,37 @@ abstract class MapboxGlPlatform {
 
   Future<void> addSymbolLayer(
       String sourceId, String layerId, Map<String, dynamic> properties,
-      {String? belowLayerId}) async {
+      {String? belowLayerId, String? sourceLayer}) async {
     throw UnimplementedError('addSymbolLayer() has not been implemented.');
   }
 
   Future<void> addLineLayer(
       String sourceId, String layerId, Map<String, dynamic> properties,
-      {String? belowLayerId}) async {
+      {String? belowLayerId, String? sourceLayer}) async {
     throw UnimplementedError('addLineLayer() has not been implemented.');
   }
 
   Future<void> addCircleLayer(
       String sourceId, String layerId, Map<String, dynamic> properties,
-      {String? belowLayerId}) async {
+      {String? belowLayerId, String? sourceLayer}) async {
     throw UnimplementedError('addCircleLayer() has not been implemented.');
   }
 
   Future<void> addFillLayer(
       String sourceId, String layerId, Map<String, dynamic> properties,
-      {String? belowLayerId}) async {
+      {String? belowLayerId, String? sourceLayer}) async {
     throw UnimplementedError('addFillLayer() has not been implemented.');
   }
-  
-  void dispose() {
-  
-  }
+
+  Future<void> addRasterLayer(
+      String sourceId, String layerId, Map<String, dynamic> properties,
+      {String? belowLayerId, String? sourceLayer});
+
+  Future<void> addHillshadeLayer(
+      String sourceId, String layerId, Map<String, dynamic> properties,
+      {String? belowLayerId, String? sourceLayer});
+
+  Future<void> addSource(String sourceId, SourceProperties properties);
+
+  void dispose() {}
 }
