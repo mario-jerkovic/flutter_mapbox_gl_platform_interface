@@ -708,6 +708,16 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
   }
 
   @override
+  Future<void> setFilter(String layerId, dynamic filter) async {
+    try {
+      return await _channel.invokeMethod('style#setFilter',
+          <String, Object>{'layerId': layerId, 'filter': jsonEncode(filter)});
+    } on PlatformException catch (e) {
+      return new Future.error(e);
+    }
+  }
+
+  @override
   Future<LatLng> toLatLng(Point screenLocation) async {
     try {
       var latLngMap =
@@ -755,7 +765,7 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
   @override
   Future<void> addSymbolLayer(
       String sourceId, String layerId, Map<String, dynamic> properties,
-      {String? belowLayerId, String? sourceLayer}) async {
+      {String? belowLayerId, String? sourceLayer, dynamic filter}) async {
     await _channel.invokeMethod('symbolLayer#add', <String, dynamic>{
       'sourceId': sourceId,
       'layerId': layerId,
@@ -769,7 +779,7 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
   @override
   Future<void> addLineLayer(
       String sourceId, String layerId, Map<String, dynamic> properties,
-      {String? belowLayerId, String? sourceLayer}) async {
+      {String? belowLayerId, String? sourceLayer, dynamic filter}) async {
     await _channel.invokeMethod('lineLayer#add', <String, dynamic>{
       'sourceId': sourceId,
       'layerId': layerId,
@@ -783,7 +793,7 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
   @override
   Future<void> addCircleLayer(
       String sourceId, String layerId, Map<String, dynamic> properties,
-      {String? belowLayerId, String? sourceLayer}) async {
+      {String? belowLayerId, String? sourceLayer, dynamic filter}) async {
     await _channel.invokeMethod('circleLayer#add', <String, dynamic>{
       'sourceId': sourceId,
       'layerId': layerId,
@@ -797,7 +807,7 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
   @override
   Future<void> addFillLayer(
       String sourceId, String layerId, Map<String, dynamic> properties,
-      {String? belowLayerId, String? sourceLayer}) async {
+      {String? belowLayerId, String? sourceLayer, dynamic filter}) async {
     await _channel.invokeMethod('fillLayer#add', <String, dynamic>{
       'sourceId': sourceId,
       'layerId': layerId,

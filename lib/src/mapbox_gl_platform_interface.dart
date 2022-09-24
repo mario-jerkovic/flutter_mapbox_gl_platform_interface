@@ -259,6 +259,8 @@ abstract class MapboxGlPlatform {
     throw UnimplementedError('removeLayer() has not been implemented.');
   }
 
+  Future<void> setFilter(String layerId, dynamic filter);
+
   Future<Point> toScreenLocation(LatLng latLng) async {
     throw UnimplementedError('toScreenLocation() has not been implemented.');
   }
@@ -293,25 +295,25 @@ abstract class MapboxGlPlatform {
 
   Future<void> addSymbolLayer(
       String sourceId, String layerId, Map<String, dynamic> properties,
-      {String? belowLayerId, String? sourceLayer}) async {
+      {String? belowLayerId, String? sourceLayer, dynamic filter}) async {
     throw UnimplementedError('addSymbolLayer() has not been implemented.');
   }
 
   Future<void> addLineLayer(
       String sourceId, String layerId, Map<String, dynamic> properties,
-      {String? belowLayerId, String? sourceLayer}) async {
+      {String? belowLayerId, String? sourceLayer, dynamic filter}) async {
     throw UnimplementedError('addLineLayer() has not been implemented.');
   }
 
   Future<void> addCircleLayer(
       String sourceId, String layerId, Map<String, dynamic> properties,
-      {String? belowLayerId, String? sourceLayer}) async {
+      {String? belowLayerId, String? sourceLayer, dynamic filter}) async {
     throw UnimplementedError('addCircleLayer() has not been implemented.');
   }
 
   Future<void> addFillLayer(
       String sourceId, String layerId, Map<String, dynamic> properties,
-      {String? belowLayerId, String? sourceLayer}) async {
+      {String? belowLayerId, String? sourceLayer, dynamic filter}) async {
     throw UnimplementedError('addFillLayer() has not been implemented.');
   }
 
